@@ -1,4 +1,5 @@
 from typing import Any, Union
+
 from src.masks import length_numbers, user_input
 
 date_input = input("Ввод данных даты: ")
@@ -10,7 +11,6 @@ def mask_account_card() -> Any:
 
 
 print(mask_account_card())
-
 
 
 def get_date(date: Union[str]) -> Union[str]:
