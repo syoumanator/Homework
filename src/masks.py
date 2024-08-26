@@ -33,6 +33,20 @@ def get_mask_card_number(card_number: Union[int, str]) -> Union[int, str]:
     return result
 
 
+def length_numbers(data: Union[int, str]) -> Union[int, str]:
+    """Функция проверяет длину чисел и возвращает замаскированный номер карты или счёта"""
+    str_user_data = str(data)
+    length_numbers = []
+    list_user_data = [i for i in str_user_data]
+    for i in list_user_data:
+        if i.isdigit():
+            length_numbers.append(i)
+    if len(length_numbers) == 16:
+        return get_mask_card_number(user_input)
+    elif len(length_numbers) == 20:
+        return get_mask_account(user_input)
+    else:
+        return "Некорректный ввод"
 
 
 
