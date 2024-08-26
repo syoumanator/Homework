@@ -33,6 +33,7 @@ def get_mask_card_number(card_number: Union[int, str]) -> Union[int, str]:
     return result
 
 
+
 def length_numbers(data: Union[int, str]) -> Union[int, str]:
     """Функция проверяет длину чисел и возвращает замаскированный номер карты или счёта"""
     str_user_data = str(data)
@@ -47,7 +48,6 @@ def length_numbers(data: Union[int, str]) -> Union[int, str]:
         return get_mask_account(user_input)
     else:
         return "Некорректный ввод"
-
 
 
 # Maestro 1596837868705199
