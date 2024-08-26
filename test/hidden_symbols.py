@@ -1,0 +1,2 @@
+hidden_symbol = "*"
+space = " "
