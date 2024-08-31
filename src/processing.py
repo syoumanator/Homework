@@ -1,3 +1,5 @@
+from typing import Union
+
 list_of_dictionaries = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
     {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -6,7 +8,7 @@ list_of_dictionaries = [
 ]
 
 
-def filter_by_state(list_data: list, state: str):
+def filter_by_state(list_data: Union[list], state: str) -> Union[list]:
     """Функция возвращает список словарей, содержащий только те словари,
     у которых ключ state соответствует указанному значению"""
     new_list = []
@@ -19,7 +21,7 @@ def filter_by_state(list_data: list, state: str):
 print(filter_by_state(list_of_dictionaries, state="EXECUTED"))
 
 
-def sort_by_date(sorted_list: list):
+def sort_by_date(sorted_list: Union[list]) -> Union[list]:
     """Функция возвращает новый список, отсортированный по дате"""
     return sorted(sorted_list, key=lambda x: x["date"], reverse=True)
 
