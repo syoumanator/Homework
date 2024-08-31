@@ -27,7 +27,9 @@
 
 1. Клонируйте репозиторий:
 ```
-
+git@github.com:syoumanator/Homework.git
+or
+https://github.com/syoumanator/Homework.git
 ```
 
 2. Установите зависимости:
