@@ -25,10 +25,11 @@
     Функция возвращает новый список, отсортированный по дате (date).
 ## Установка:
 
-1. Клонируйте репозиторий:
+1. Клонируйте репозиторий удобным способом:
 ```
 git@github.com:syoumanator/Homework.git
-or
+```
+```
 https://github.com/syoumanator/Homework.git
 ```
 
