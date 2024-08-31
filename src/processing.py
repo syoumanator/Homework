@@ -1,5 +1,3 @@
-from typing import Union
-
 list_of_dictionaries = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
     {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -8,22 +6,26 @@ list_of_dictionaries = [
 ]
 
 
-def filter_by_state(list_data: Union[list], state: str) -> Union[list]:
-    """Функция возвращает список словарей, содержащий только те словари,
-    у которых ключ state соответствует указанному значению"""
+def filter_by_state(list_data: list, key: str = "EXECUTED") -> list:
+    """Функция, которая принимает список словарей
+    и опционально значение для ключа state (по умолчанию 'EXECUTED').
+    Функция возвращает новый список словарей, содержащий только те словари,
+    у которых ключ state соответствует указанному значению."""
     new_list = []
     for i in list_data:
-        if i["state"] == state:
+        if i["state"] == key:
             new_list.append(i)
     return new_list
 
 
-print(filter_by_state(list_of_dictionaries, state="EXECUTED"))
+print(filter_by_state(list_of_dictionaries))
 
 
-def sort_by_date(sorted_list: Union[list]) -> Union[list]:
-    """Функция возвращает новый список, отсортированный по дате"""
-    return sorted(sorted_list, key=lambda x: x["date"], reverse=True)
+def sort_by_date(sorted_list: list, reverse: bool = True) -> list:
+    """Функция, которая принимает список словарей и необязательный параметр,
+    задающий порядок сортировки (по умолчанию — убывание).
+    Функция должна возвращать новый список, отсортированный по дате (date)."""
+    return sorted(sorted_list, key=lambda x: x["date"], reverse=reverse)
 
 
 print(sort_by_date(list_of_dictionaries))
