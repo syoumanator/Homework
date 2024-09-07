@@ -12,12 +12,7 @@ def get_mask_account(user_account_numbers: Union[int, str]) -> Union[int, str]:
     list_numbers = [i for i in list_user_data if i.isdigit()]
     if len(list_numbers) == 20:
         hidden_data = [
-            (
-                list_numbers[i]
-                if i not in range(len(list_numbers) - 20, len(list_numbers) - 4)
-                else hidden_symbol
-            )
-
+            (list_numbers[i] if i not in range(len(list_numbers) - 20, len(list_numbers) - 4) else hidden_symbol)
             for i in range(len(list_numbers))
         ]
         while hidden_data.count(hidden_symbol) != 2:
@@ -25,7 +20,7 @@ def get_mask_account(user_account_numbers: Union[int, str]) -> Union[int, str]:
         result_list_numbers = "".join(hidden_data)
         result_list_letters = "".join(list_letters)
         if len(result_list_letters) > 0:
-            return result_list_letters+" "+result_list_numbers
+            return result_list_letters + " " + result_list_numbers
         else:
             return result_list_numbers
     else:
