@@ -31,16 +31,16 @@ def log(filename: Optional[str] = None) -> Callable:
     return wrapper
 
 
-@log(filename="../mylog.txt")
-def example_func_1(x: int, y: int) -> int:
-    return x + y
-
-
-example_func_1(1, 2)
+# @log(filename="../mylog.txt")
+# def example_func_1(x: int, y: int) -> int:
+#     return x + y
+#
+#
+# example_func_1(1, 2)
 
 
 # @log()
-# def example_func_1(x: int, y: int) -> int:
+# def example_func_2(x: int, y: int) -> int:
 #     return x + y
 #
 #

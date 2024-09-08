@@ -1,1 +1,17 @@
 example_func_1 ok.
+example_func_1 ok.
+example_func_1 ok.
+example_func_1 ok.
+example_func_2 error: TypeError. Inputs: (1, 22), {}
+example_func_1 ok.
+example_func_1 ok.
+example_func_1 ok.
+example_func_1 ok.
+example_func_1 ok.
+example_func_2 error: TypeError. Inputs: (1, 22), {}
+example_func_1 ok.
+example_func_1 ok.
+example_func_1 ok.
+example_func_1 ok.
+example_func_2 error: TypeError. Inputs: (1, 22), {}
+example_func_1 ok.
