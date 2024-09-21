@@ -1,20 +1,26 @@
 import json
 from json import JSONDecodeError
-from typing import Any
+from pathlib import Path
+from typing import Optional
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+join_path = BASE_DIR / "data" / "operations.json"
 
 
-def get_json(file_path: str) -> Any:
+def get_json(file_path: Path) -> Optional[list]:
     """Функция принимает на вход путь до JSON-файла и возвращает список словарей с данными
     о финансовых транзакциях."""
     try:
         with open(file_path, "r", encoding="utf-8") as file:
-            financial_transactions = json.load(file)
-            return financial_transactions
+            all_transactions = json.load(file)
+            if isinstance(all_transactions, list):
+                return all_transactions
+            else:
+                return []
     except JSONDecodeError:
         return []
 
 
 # if __name__ == "__main__":
-#     file_path = r"C:\Users\user\Desktop\Homework\data\operations.json"
-#     transactions = get_json(file_path)
-#     print(transactions)
+#     result = get_json(join_path)
+#     print(result)
