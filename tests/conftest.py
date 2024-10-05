@@ -23,7 +23,7 @@ def test_generators_empty() -> list:
 
 
 @pytest.fixture
-def test_generators() -> list:
+def transactions_information() -> list:
     """Список входных данных"""
     return [
         {

@@ -20,14 +20,14 @@ def test_card_number_generator_end() -> None:
 
 
 # Тестирование функции transaction_descriptions
-def test_transaction_descriptions(test_generators: list) -> None:
-    generator = transaction_descriptions(test_generators)
+def test_transaction_descriptions(transactions_information: list) -> None:
+    generator = transaction_descriptions(transactions_information)
     assert next(generator) == "Перевод организации"
 
 
 @pytest.mark.parametrize("index, expected", [(1, "Перевод со счета на счет"), (4, "Перевод организации")])
-def test_transaction_descriptions_2(index: int, expected: str, test_generators: list) -> None:
-    descriptions = list(transaction_descriptions(test_generators))
+def test_transaction_descriptions_2(index: int, expected: str, transactions_information: list) -> None:
+    descriptions = list(transaction_descriptions(transactions_information))
     assert descriptions[index] == expected
 
 
@@ -50,8 +50,8 @@ def test_filter_by_currency_empty(test_generators_empty: list, result: str = "С
     assert next(generator) == result
 
 
-def test_filter_by_currency_2(test_generators: list) -> None:
-    generator = filter_by_currency(test_generators, "USD")
+def test_filter_by_currency_2(transactions_information: list) -> None:
+    generator = filter_by_currency(transactions_information, "USD")
     assert next(generator) == {
         "id": 939719570,
         "state": "EXECUTED",
@@ -72,8 +72,8 @@ def test_filter_by_currency_2(test_generators: list) -> None:
     }
 
 
-def test_filter_by_currency_1(test_generators: list) -> None:
-    generator = filter_by_currency(test_generators, "USD")
+def test_filter_by_currency_1(transactions_information: list) -> None:
+    generator = filter_by_currency(transactions_information, "USD")
     assert next(generator) == {
         "id": 939719570,
         "state": "EXECUTED",

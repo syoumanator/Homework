@@ -40,8 +40,8 @@ def test_sort(data: list, result: list) -> None:
     assert sort_by_date(data) == result
 
 
-def test_search_by_pattern(test_generators: list) -> None:
-    assert search_by_pattern(test_generators, "Visa") == [
+def test_search_by_pattern(transactions_information: list) -> None:
+    assert search_by_pattern(transactions_information, "Visa") == [
         {
             "id": 895315941,
             "state": "EXECUTED",
@@ -70,12 +70,12 @@ def test_search_by_pattern(test_generators: list) -> None:
             "to": "Счет 14211924144426031657",
         },
     ]
-    assert search_by_pattern(test_generators, "вклад") == []
+    assert search_by_pattern(transactions_information, "вклад") == []
     assert search_by_pattern([], "счет") == []
 
 
-def test_counter_description(test_generators: list, description_list: list) -> None:
-    assert counter_description(test_generators, description_list) == {
+def test_counter_description(transactions_information: list, description_list: list) -> None:
+    assert counter_description(transactions_information, description_list) == {
         "Перевод организации": 2,
         "Перевод со счета на счет": 2,
         "Перевод с карты на карту": 1,
