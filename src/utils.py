@@ -7,13 +7,13 @@ from typing import Optional
 from src.external_api import conversion
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-join_path = BASE_DIR / "data" / "operations.json"
-
+PATH_TO_JSON = BASE_DIR / "data" / "operations.json"
+PATH_TO_EXCEL_log = BASE_DIR / "logs" / "utils.log"
 
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s: %(filename)s: %(levelname)s: %(message)s",
-    filename="../logs/utils.log",
+    filename=PATH_TO_EXCEL_log,
     filemode="w",
     encoding="utf-8",
 )
