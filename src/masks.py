@@ -1,14 +1,17 @@
 import logging
+from pathlib import Path
 from typing import Union
 
 space = " "
 hidden_symbol = "*"
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+PATH_TO_MASKS_log = BASE_DIR / "logs" / "masks.log"
 
 logging.basicConfig(
     level=logging.DEBUG,
     format="%(asctime)s: %(filename)s: %(levelname)s: %(message)s",
-    filename="../logs/masks.log",
+    filename=PATH_TO_MASKS_log,
     filemode="w",
     encoding="utf-8",
 )
