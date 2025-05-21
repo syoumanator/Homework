@@ -1,3 +1,6 @@
+from pathlib import Path
+
+import pandas as pd
 import pytest
 
 
@@ -20,7 +23,7 @@ def test_generators_empty() -> list:
 
 
 @pytest.fixture
-def test_generators() -> list:
+def transactions_information() -> list:
     """Список входных данных"""
     return [
         {
@@ -69,3 +72,84 @@ def test_generators() -> list:
             "to": "Счет 14211924144426031657",
         },
     ]
+
+
+@pytest.fixture
+def transaction_data_1() -> dict:
+    return {
+        "id": 41428829,
+        "state": "EXECUTED",
+        "date": "2019-07-03T18:35:29.512364",
+        "operationAmount": {"amount": "8221.37", "currency": {"name": "USD", "code": "USD"}},
+        "description": "Перевод организации",
+        "from": "MasterCard 7158300734726758",
+        "to": "Счет 35383033474447895560",
+    }
+
+
+@pytest.fixture
+def transaction_data_2() -> dict:
+    return {
+        "id": 441945886,
+        "state": "EXECUTED",
+        "date": "2019-08-26T10:50:58.294041",
+        "operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}},
+        "description": "Перевод организации",
+        "from": "Maestro 1596837868705199",
+        "to": "Счет 64686473678894779589",
+    }
+
+
+@pytest.fixture
+def transaction_data_3() -> dict:
+    return {
+        "id": 441945886,
+        "state": "EXECUTED",
+        "date": "2019-08-26T10:50:58.294041",
+        "description": "Перевод организации",
+        "from": "Maestro 1596837868705199",
+        "to": "Счет 64686473678894779589",
+    }
+
+
+@pytest.fixture
+def path_name() -> Path:
+    return Path("test.json")
+
+
+@pytest.fixture
+def get_wrong_path() -> Path:
+    return Path("test.jso")
+
+
+@pytest.fixture
+def description_list() -> list:
+    return ["Перевод организации", "Перевод с карты на карту", "Перевод со счета на счет"]
+
+
+@pytest.fixture
+def test_df() -> pd.DataFrame:
+    test_dict = {
+        "date": "2023-09-05T11:30:32Z",
+        "description": "Перевод организации",
+        "from": "Счет 58803664561298323391",
+        "id": 650703.0,
+        "operationAmount": {"amount": 16210.0, "currency": {"code": "PEN", "name": "Sol"}},
+        "state": "EXECUTED",
+        "to": "Счет 39745660563456619397",
+    }
+
+    return pd.DataFrame(test_dict)
+
+
+@pytest.fixture
+def sample_data() -> dict:
+    return {
+        "amount": 100,
+        "currency_name": "USD",
+        "currency_code": "US",
+        "date": "2023-01-01",
+        "description": "Test transaction",
+        "from": "Account A",
+        "to": "Account B",
+    }
